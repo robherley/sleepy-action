@@ -4,15 +4,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  loop:
     runs-on: ubuntu-latest
     steps:
       - name: Start
         run: echo ">>> Starting `date`"
-      - name: Sleep
+      - name: loop for 50 seconds
         run: |
-          echo ">>> Sleeping for 3m"
-          sleep 3m
+          x=1
+          while [ $x -le 10 ]
+          do
+            echo "Welcome $x times"
+            sleep 5
+            x=$(( $x + 1 ))
+          done
+      - name: loop for 50 seconds
+        run: |
+          x=1
+          while [ $x -le 10 ]
+          do
+            echo "Welcome $x times"
+            sleep 5
+            x=$(( $x + 1 ))
+          done
       - name: Stop
         run: echo ">>> Stopping `date`"
           
